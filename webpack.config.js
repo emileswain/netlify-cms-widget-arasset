@@ -37,13 +37,25 @@ const developmentConfig = {
 
 const productionConfig = {
     mode: 'production',
+    entry: './dev/index.js',
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
             },
+            {
+                test: /\.css$/,
+                loader: ['style-loader', 'css-loader'],
+            },
         ],
+    },
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+    },
+    resolve: {
+        extensions: ['.js', '.jsx']
     },
     devtool: 'source-map',
 }
