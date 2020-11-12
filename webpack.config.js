@@ -37,7 +37,6 @@ const developmentConfig = {
 
 const productionConfig = {
     mode: 'production',
-    entry: './dev/index.js',
     module: {
         rules: [
             {
@@ -51,9 +50,9 @@ const productionConfig = {
             },
         ],
     },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-    },
+    // output: {
+    //     path: path.resolve(__dirname, 'dist'),
+    // },
     resolve: {
         extensions: ['.js', '.jsx']
     },
