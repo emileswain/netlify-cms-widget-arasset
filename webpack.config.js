@@ -1,9 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const pkg = require(path.join(process.cwd(), 'package.json'));
 const developmentConfig = {
     mode: 'development',
-    entry: './dev/index.js',
+    entry: './dev/index.jsx',
     output: {
         path: path.resolve(__dirname, 'public'),
     },
@@ -37,6 +37,17 @@ const developmentConfig = {
 
 const productionConfig = {
     mode: 'production',
+    target: 'web',
+    entry: './src/',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: `main.js`,
+        library: 'netlifyCmsWidgetArasset',
+        libraryTarget: 'umd',
+        libraryExport: 'netlifyCmsWidgetArasset',
+        umdNamedDefine: true,
+        globalObject: 'this',
+    },
     module: {
         rules: [
             {
@@ -50,9 +61,6 @@ const productionConfig = {
             },
         ],
     },
-    // output: {
-    //     path: path.resolve(__dirname, 'dist'),
-    // },
     resolve: {
         extensions: ['.js', '.jsx']
     },

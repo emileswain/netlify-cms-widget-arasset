@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Widget to load and display AR asset",
   "main": "dist/main.js",
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "netlify",
     "netlify-cms",
